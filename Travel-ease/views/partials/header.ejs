@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Train Booking</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <img src="/Gemini_Generated_Image_dsmh2hdsmh2hdsmh.jpeg" alt="TravelEase Logo">
+                <h1>TravelEase</h1>
+            </div>
+            <button class="profile-btn" id="profileBtn">Profile</button>
+            <div class="profile-menu" id="profileMenu">
+                <h2>Login</h2>
+                <div class="divider"></div>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="form-group mt-10">
+                    <input type="tel" id="phone" placeholder="Phone Number (+91)" required>
+                    <button class="otp-btn" id="sendOtpBtn">Send OTP</button>
+                </div>
+                <div class="form-group mt-10">
+                    <input type="text" id="otp" placeholder="Enter OTP" required>
+                </div>
+                <div class="form-group mt-10">
+                    <select id="role" required>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="professional">Professional</option>
+                    </select>
+                </div>
+                <div class="form-group mt-10">
+                    <input type="text" id="idNumber" placeholder="College ID / Reg No" required>
+                </div>
+                <div class="buttons mt-20">
+                    <button id="loginBtn">Login</button>
+                    <button id="logoutBtn" style="display: none;">Logout</button>
+                </div>
+                <p id="profileStatus" class="status-text mt-10"></p>
+            </div>
+        </header>
+    </div>
+</body>
+</html> 

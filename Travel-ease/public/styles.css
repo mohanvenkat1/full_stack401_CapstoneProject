@@ -1,0 +1,273 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body with original background image */
+body {
+    background: url('Gemini_Generated_Image_swif67swif67swif.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Light overlay for visibility */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.6), rgba(42, 82, 152, 0.6));
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    width: 70px;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.logo img:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Profile Button */
+.profile-btn {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+
+.profile-btn:hover {
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+}
+
+/* Profile Menu */
+.profile-menu {
+    position: absolute;
+    top: 110px;
+    right: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    color: #020202;
+    animation: popIn 0.5s ease-out;
+    display: none;
+}
+
+.profile-menu.active {
+    display: block;
+}
+
+/* Section Styling */
+section {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 50px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1.2s ease-out;
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Form Styling */
+.form-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+input, select {
+    width: 100%;
+    padding: 18px;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    font-size: 1.2em;
+    background: rgba(1, 1, 1, 0.2);
+    color: #000000;
+    transition: all 0.4s ease;
+}
+
+input:focus, select:focus {
+    border-color: #00c6ff;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.8);
+    transform: scale(1.03);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    color: #fff;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.7);
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.back-btn:hover {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+
+.otp-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+/* Train List */
+ul {
+    list-style: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+    color: #fff;
+}
+
+li:hover {
+    transform: translateX(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #00c6ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container { padding: 20px; }
+    header { padding: 15px 30px; }
+    .logo img { width: 50px; }
+    h1 { font-size: 2em; }
+    .profile-menu { width: 300px; top: 90px; right: 30px; }
+    section { padding: 30px; }
+    .form-group { min-width: 100%; }
+}
+
+/* Utility Classes */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.status-text { text-align: center; }
+.divider { width: 100%; height: 1px; background: rgba(255, 255, 255, 0.3); margin: 20px 0; }

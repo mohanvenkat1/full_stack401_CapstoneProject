@@ -1,0 +1,98 @@
+<%- include('partials/header') %>
+
+<!-- Booking Form -->
+<section id="bookingForm" style="<%= showTrains ? 'display: none;' : '' %>">
+    <h2>Book Your Train</h2>
+    <div class="divider"></div>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" id="source" placeholder="From (e.g., New Delhi)" required>
+        </div>
+        <div class="form-group">
+            <input type="text" id="destination" placeholder="To (e.g., Chennai)" required>
+        </div>
+        <div class="form-group">
+            <input type="date" id="date" required>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="searchTrainsBtn">Search Trains</button>
+    </div>
+    <p id="userStatus" class="status-text mt-20"></p>
+</section>
+
+<!-- Results -->
+<section class="results" id="resultsSection" style="<%= showTrains ? 'display: block;' : 'display: none;' %>">
+    <h2>Available Trains</h2>
+    <div class="divider"></div>
+    <ul id="trainList">
+    <% if (trains && trains.length > 0) { 
+        for(let i = 0; i < trains.length; i++) { 
+            let train = trains[i]; %>
+            <li>
+                <div class="train-details">
+                    <strong><%= train.name %> (<%= train.id %>)</strong><br>
+                    Dep: <%= train.departure %> | Seats: <%= train.seats %> | Fare: ₹<%= train.fare %><br>
+                    Status: <%= train.status %>
+                </div>
+                <button onclick="bookTrain(<%= train.id %>)">Book Now</button>
+            </li>
+        <% } 
+    } %>
+    </ul>
+    <div class="buttons mt-20">
+        <button class="back-btn" id="backToSearchBtn">Back</button>
+    </div>
+</section>
+
+<!-- Booking Confirmation -->
+<section id="bookingConfirmation" style="display: none;">
+    <h2 id="bookingTitle"></h2>
+    <div class="divider"></div>
+    <p id="bookingDetails"></p>
+    <div class="payment-options" id="paymentOptions">
+        <select id="paymentMethod">
+            <option value="upi">UPI</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="netbanking">Net Banking</option>
+        </select>
+        <input type="email" id="email" placeholder="Email for confirmation" required>
+        <button id="payNowBtn">Pay Now</button>
+    </div>
+    <div class="buttons mt-20">
+        <button class="back-btn" id="backFromConfirmationBtn">Back</button>
+    </div>
+</section>
+
+<!-- Customer Service -->
+<section id="customerService">
+    <h2>Customer Support</h2>
+    <div class="divider"></div>
+    <p>Need help? Contact us 24/7:</p>
+    <p>Email: <a href="mailto:support@travelease.com">support@travelease.com</a></p>
+    <p>Phone: <a href="tel:+911234567890">+91 123-456-7890</a></p>
+    <p>Live Chat: <button id="liveChatBtn">Start Chat</button></p>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <div class="divider"></div>
+    <p>Address: 123 Travel Lane, New Delhi, India</p>
+    <p>Email: <a href="mailto:info@travelease.com">info@travelease.com</a></p>
+    <p>Phone: <a href="tel:+919030669229">+91 **********</a></p>
+</section>
+
+</div> <!-- Close container div from header -->
+
+<%- include('partials/footer') %>
+
+<script>
+// Set initial state based on server-rendered data
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('trainList').children.length > 0) {
+        document.getElementById('resultsSection').style.display = 'block';
+        document.getElementById('bookingForm').style.display = 'none';
+    }
+});
+</script> 
